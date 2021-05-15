@@ -24,11 +24,11 @@ def mouse_callback(event, x, y, flags, param):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--f", type=str, help="Path to image file", default="road_image.jpg", required=False)
+    parser.add_argument("-f", "--file_path", type=str, help="Path to image file", default="road_image.jpg", required=False)
     args = parser.parse_args()
 
     # load image
-    img_path = args.img_path
+    img_path = args.file_path
     road = cv2.imread(img_path)
 
     road_copy = np.copy(road)
