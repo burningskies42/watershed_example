@@ -1,4 +1,5 @@
-import os
+#!/usr/bin/env python3
+import argparse
 
 import cv2
 import numpy as np
@@ -22,10 +23,12 @@ def mouse_callback(event, x, y, flags, param):
 
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--f", type=str, help="Path to image file", default="road_image.jpg", required=False)
+    args = parser.parse_args()
 
     # load image
-    DATA_PATH = os.path.join("/home/leon/repos/Computer-Vision-with-Python/DATA/")
-    img_path = os.path.join(DATA_PATH, "road_image.jpg")
+    img_path = args.img_path
     road = cv2.imread(img_path)
 
     road_copy = np.copy(road)
